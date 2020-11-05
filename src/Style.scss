@@ -1,0 +1,156 @@
+$teal: #05cfd3;
+$main-font: "Poppins", sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: $main-font;
+}
+.teal-button {
+    background-color: $teal;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-family: $main-font;
+    border: none;
+    margin-top: 2rem;
+    border: 1px solid $teal;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+//Landing Page
+.hero-container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: rgb(158, 56, 56);
+    color: white;
+    background: radial-gradient(
+        circle,
+        rgba(158, 56, 56, 0.8827906162464986) 0%,
+        rgba(37, 8, 62, 1) 100%,
+        rgba(26, 27, 125, 1) 100%
+    );
+    input {
+        background-color: transparent;
+        padding: 1.25rem;
+        color: white;
+        font-size: 1.5rem;
+        border: 1px solid white;
+        width: 500px;
+    }
+
+    .scroll-down {
+        position: absolute;
+        bottom: 10%;
+    }
+    .hero-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        align-items: center;
+    }
+    .hero-new-releases {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+        img {
+            height: 280px;
+            width: auto;
+        }
+        p:nth-child(3) {
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+}
+.recommended-container {
+    margin: auto;
+    text-align: center;
+    background-color: black;
+    color: white;
+    h1 {
+        padding: 4rem 0 4rem 0;
+    }
+    .carousel {
+        width: 85%;
+        margin: auto;
+        img {
+            height: 375px;
+        }
+    }
+}
+.sales-landing-container {
+    background-color: black;
+    color: white;
+    text-align: center;
+    .sales-container {
+        width: 85%;
+        margin: auto;
+        padding: 4rem 0 4rem 0;
+        p {
+            font-size: 5rem;
+        }
+        span {
+            color: $teal;
+        }
+    }
+}
+.signup-landing-container {
+    background-color: black;
+    color: white;
+    text-align: center;
+    .signup-container {
+        padding-bottom: 4rem;
+        h1 {
+            padding: 4rem 0 0rem 0;
+        }
+        span {
+            color: $teal;
+        }
+        h3 {
+            padding-bottom: 2rem;
+        }
+        label {
+            display: block;
+            font-size: 1.25rem;
+            padding: 1rem;
+        }
+        input {
+            background-color: #353535;
+            padding: 0.8rem;
+            font-size: 1.5rem;
+            color: white;
+            border: none;
+            border-radius: 1px;
+            width: 40%;
+        }
+        button {
+            display: block;
+            margin: auto;
+            margin-top: 1rem;
+            width: 40%;
+        }
+    }
+}
+//End Landing Page
+//Album Page
+.album-container {
+    display: flex;
+    color: white;
+    background-color: black;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+
+    .album-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

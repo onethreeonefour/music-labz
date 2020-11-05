@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import NavBar from './Components/Utilities/Navigation/Navbar'
+import Footer from './Components/Utilities/Navigation/Footer'
+import Landing from './Components/Landing/Landing'
+import Album from './Components/Album/Album'
+import './Style.scss';
+
+import { Route, Switch, useLocation } from "react-router-dom";
 
 function App() {
+  const location = useLocation();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar />
+      <div style={{ minHeight: 'calc(100vh - 80px)' }}>
+        <Switch location={location} key={location.pathname}>
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/album/:id" component={Album} />
+        </Switch>
+      </div>
+      <Footer />
+    </>
   );
 }
 
