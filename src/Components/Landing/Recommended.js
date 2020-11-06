@@ -46,7 +46,7 @@ function Recommended() {
 
     const renderCards = playlist.map((el, index) => {
         return <div key={index}>
-            <img src={el.images[0].url}></img>
+            <img src={el.images[0].url} alt="playlist" ></img>
             <p>{el.name}</p>
         </div>
     })

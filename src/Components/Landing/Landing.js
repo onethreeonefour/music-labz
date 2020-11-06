@@ -56,13 +56,13 @@ function Landing() {
                         <div className='hero-new-releases'>
                             {newReleases.length > 0 ? newReleases.slice(0, 6).map((releases, index) => {
                                 return <Link to={`/album/${releases.id}`} key={index}>
-                                    <div>
+                                    <div key={index}>
                                         <img src={releases.images[0].url} alt="new-releases"></img>
                                         <p>{releases.name}</p>
                                         <p>{releases.artists[0].name} </p>
                                     </div>
                                 </Link>
-                            }) : <div className='hero-new-releases'>{lazyImage.map((el, index) => { return <div ><img src={Blank}></img><p>Loading..</p></div> })}</div>}
+                            }) : <div className='hero-new-releases'>{lazyImage.map((el, index) => { return <div key={index}><img src={Blank} alt="blank"></img><p>Loading..</p></div> })}</div>}
                         </div>
                     </div>
                 </div>
