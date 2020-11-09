@@ -35,43 +35,46 @@ function Artist(props) {
 
     useEffect(() => {
         let id = props.match.params.id;
-        //Artist Information
-        axios(`https://api.spotify.com/v1/artists/${id}`, {
-            method: 'GET',
-            headers: { 'Authorization': 'Bearer ' + context.token }
-        })
-            .then(res => {
-                setartistInfo(res.data)
-            });
-        //Artist Albums
-        axios(`https://api.spotify.com/v1/artists/${id}/albums?market=US`, {
-            method: 'GET',
-            headers: { 'Authorization': 'Bearer ' + context.token }
-        })
-            .then(res => {
-                console.log(res.data.items)
-                setartistAlbum(res.data)
-            });
-        //Artist Top Tracks
-        axios(`https://api.spotify.com/v1/artists/${id}/top-tracks?market=US`, {
-            method: 'GET',
-            headers: { 'Authorization': 'Bearer ' + context.token }
-        })
-            .then(res => {
-                setartistTopTracks(res.data)
-            });
-        //Similar Artists
-        axios(`https://api.spotify.com/v1/artists/${id}/related-artists`, {
-            method: 'GET',
-            headers: { 'Authorization': 'Bearer ' + context.token }
-        })
-            .then(res => {
-                setartistSimilar(res.data)
-            });
+        if (context.token) {
+            //Artist Information
+            axios(`https://api.spotify.com/v1/artists/${id}`, {
+                method: 'GET',
+                headers: { 'Authorization': 'Bearer ' + context.token }
+            })
+                .then(res => {
+                    setartistInfo(res.data)
+                });
+            //Artist Albums
+            axios(`https://api.spotify.com/v1/artists/${id}/albums?market=US`, {
+                method: 'GET',
+                headers: { 'Authorization': 'Bearer ' + context.token }
+            })
+                .then(res => {
+                    //console.log(res.data.items)
+                    setartistAlbum(res.data)
+                });
+            //Artist Top Tracks
+            axios(`https://api.spotify.com/v1/artists/${id}/top-tracks?market=US`, {
+                method: 'GET',
+                headers: { 'Authorization': 'Bearer ' + context.token }
+            })
+                .then(res => {
+                    setartistTopTracks(res.data)
+                });
+            //Similar Artists
+            axios(`https://api.spotify.com/v1/artists/${id}/related-artists`, {
+                method: 'GET',
+                headers: { 'Authorization': 'Bearer ' + context.token }
+            })
+                .then(res => {
+                    setartistSimilar(res.data)
+                });
+
+        }
 
     }, [context.token])
     //console.log(artistInfo)
-    console.log(artistAlbum)
+    //console.log(artistAlbum)
     //console.log(artistTopTracks)
     //console.log(artistSimilar)
 
@@ -89,26 +92,25 @@ function Artist(props) {
                     <>
                         <div className="artist-grid" >
                             <div>
-                                <img src={artistInfo.images[0].url}></img>
+                                <img src={artistInfo.images[0].url} alt="profile" className="artist-image"></img>
                             </div>
                             <div>
                                 <h1>{artistInfo.name}</h1>
-                                <h3>Followers: {artistInfo.followers.total}</h3>
-                                <h3 >Popularity: {artistInfo.popularity}</h3>
-                                <h3>Known For</h3>
+                                <iframe src={`https://open.spotify.com/follow/1/?uri=${artistInfo.uri}&size=detail&theme=dark`} width="300" height="56" scrolling="no" frameBorder="0" style={{ border: "none", overflow: "hidden" }} allowtransparency="true" title="follow"></iframe>
+                                <h4>Known For</h4>
                                 {artistInfo.genres.map((genres, index) => {
                                     return <p key={index}>{genres} </p>
                                 })}
                                 <br />
-                                <h3>Popular Releases</h3>
+                                <h3>Latest Releases</h3>
                                 <div className="artist-key-releases">
                                     <div>
                                         <Link to={`/album/${artistAlbum.items[0].id}`}><img src={artistAlbum.items[0].images[1].url} alt="latest"></img></Link>
                                         <h4>{artistAlbum.items[0].name} - {artistAlbum.items[0].release_date}</h4>
                                     </div>
                                     <div>
-                                        <Link to={`/album/${artistAlbum.items[3].id}`}><img src={artistAlbum.items[3].images[1].url} alt="latest"></img></Link>
-                                        <h4>{artistAlbum.items[3].name} - {artistAlbum.items[3].release_date}</h4>
+                                        <Link to={`/album/${artistAlbum.items[1].id}`}><img src={artistAlbum.items[1].images[1].url} alt="latest"></img></Link>
+                                        <h4>{artistAlbum.items[1].name} - {artistAlbum.items[1].release_date}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -117,7 +119,7 @@ function Artist(props) {
                             <div>
                                 <h1>Top Tracks</h1>
                                 {artistTopTracks.tracks.slice(0, 4).map((tracks, index) => {
-                                    return <iframe src={`https://open.spotify.com/embed/track/${tracks.id}`} key={index} width="100%" height="80" frameBorder="0" allowtransparency="false" allow="encrypted-media" className="spotify-player-mini" title="tracks"></iframe>
+                                    return <iframe src={`https://open.spotify.com/embed/track/${tracks.id}`} key={index} width="95%" height="80" frameBorder="0" allowtransparency="false" allow="encrypted-media" className="spotify-player-mini" title="tracks"></iframe>
                                 })}
                             </div>
                             <div className="similar-artist-container">

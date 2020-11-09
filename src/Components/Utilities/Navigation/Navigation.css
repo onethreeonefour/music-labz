@@ -23,6 +23,7 @@ body {
 
 .nav>.nav-header {
     display: inline;
+    font-family: "Poppins", sans-serif;
 }
 
 .nav>.nav-header>.nav-title {

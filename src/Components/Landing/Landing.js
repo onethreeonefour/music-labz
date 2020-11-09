@@ -6,12 +6,15 @@ import Recommended from './Recommended'
 import Sales from './Sales'
 import Signup from './Signup'
 import { Link } from 'react-router-dom'
-import Blank from '../../Images/blank.jpg'
+import Blank from '../../Images/blank.jpg';
+
 
 const lazyImage = [0, 1, 2, 4, 5, 6]
-function Landing() {
+function Landing(props) {
     const context = useContext(GlobalContext)
     const [newReleases, setnewReleases] = useState([])
+    const [Query, setQuery] = useState("")
+
 
     useEffect(() => {
         //Authorization - requesting token with CLIENT_ID & SECRET
@@ -39,15 +42,33 @@ function Landing() {
 
             });
 
-    }, [])
+    }, []);
+
+    const onChangeSearch = (e) => {
+        setQuery(e.currentTarget.value)
+
+    }
+
+    const handleSubmit = () => {
+        props.history.push(`/search/${Query}`);
+    }
+
+
     return (
         <>
             <div className="hero-container">
                 <div className="hero-grid">
                     <div>
                         <h1>MusicLabz.<br /> The Premier Music Database and Stream.</h1>
-                        <input name="search" ></input>
-                        <button className="teal-button"> Search</button>
+                        <form onSubmit={handleSubmit}>
+                            <input
+                                value={Query}
+                                type="input"
+                                required
+                                onChange={onChangeSearch}
+                            />
+                            <button className="teal-button"> Search</button>
+                        </form>
                         <br />
                         <p className="scroll-down">SCROLL DOWN</p>
                     </div>
@@ -62,7 +83,7 @@ function Landing() {
                                         <p>{releases.artists[0].name} </p>
                                     </div>
                                 </Link>
-                            }) : <div className='hero-new-releases'>{lazyImage.map((el, index) => { return <div key={index}><img src={Blank} alt="blank"></img><p>Loading..</p></div> })}</div>}
+                            }) : <div className='hero-new-releases'>{lazyImage.map((el, index) => { return <div key={index}><img src={Blank} alt="blank" className="blank-image"></img><p>Loading..</p><p>Loading..</p></div> })}</div>}
                         </div>
                     </div>
                 </div>

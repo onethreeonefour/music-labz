@@ -3,6 +3,7 @@ import axios from 'axios';
 import { GlobalContext } from '../../Context/Context';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { Link } from 'react-router-dom';
 
 const responsive = {
     superLargeDesktop: {
@@ -45,10 +46,10 @@ function Recommended() {
     }, [context.token.length])
 
     const renderCards = playlist.map((el, index) => {
-        return <div key={index}>
+        return <Link to={`/playlist/${el.id}`} key={index}><div>
             <img src={el.images[0].url} alt="playlist" ></img>
-            <p>{el.name}</p>
         </div>
+        </Link>
     })
 
     return (

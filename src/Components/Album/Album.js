@@ -8,15 +8,19 @@ function Album(props) {
     const context = useContext(GlobalContext)
 
     useEffect(() => {
+        //console.log(context.token)
         let id = props.match.params.id;
-        axios(`https://api.spotify.com/v1/albums/${id}`, {
-            method: 'GET',
-            headers: { 'Authorization': 'Bearer ' + context.token }
-        })
-            .then(res => {
-                //console.log(res)
-                setalbum(res.data)
-            });
+        if (context.token) {
+            axios(`https://api.spotify.com/v1/albums/${id}`, {
+                method: 'GET',
+                headers: { 'Authorization': 'Bearer ' + context.token }
+            })
+                .then(res => {
+                    console.log(res)
+                    setalbum(res.data)
+                });
+
+        }
 
     }, [context.token])
 
