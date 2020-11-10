@@ -42,7 +42,7 @@ function Landing(props) {
 
             });
 
-    }, []);
+    }, [props]);
 
     const onChangeSearch = (e) => {
         setQuery(e.currentTarget.value)
@@ -83,7 +83,7 @@ function Landing(props) {
                                         <p>{releases.artists[0].name} </p>
                                     </div>
                                 </Link>
-                            }) : <div className='hero-new-releases'>{lazyImage.map((el, index) => { return <div key={index}><img src={Blank} alt="blank" className="blank-image"></img><p>Loading..</p><p>Loading..</p></div> })}</div>}
+                            }) : <div className='hero-new-releases'></div>}
                         </div>
                     </div>
                 </div>

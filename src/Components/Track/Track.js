@@ -17,7 +17,6 @@ function Track(props) {
                 headers: { 'Authorization': 'Bearer ' + context.token }
             })
                 .then(res => {
-                    console.log(res)
                     setTrack(res.data)
                 });
         }

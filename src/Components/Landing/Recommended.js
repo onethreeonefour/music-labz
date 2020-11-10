@@ -17,7 +17,7 @@ const responsive = {
     },
     tablet: {
         breakpoint: { max: 1024, min: 464 },
-        items: 2
+        items: 1
     },
     mobile: {
         breakpoint: { max: 464, min: 0 },
@@ -33,7 +33,7 @@ function Recommended() {
     useEffect(() => {
         //If Token has been initialized then post/get methods can be done
         if (context.token.length > 0) {
-            axios('https://api.spotify.com/v1/browse/featured-playlists?locale=sv_US', {
+            axios('https://api.spotify.com/v1/browse/featured-playlists?country=AU', {
                 method: 'GET',
                 headers: { 'Authorization': 'Bearer ' + context.token }
             })
@@ -43,7 +43,7 @@ function Recommended() {
                 });
         }
 
-    }, [context.token.length])
+    }, [context.token])
 
     const renderCards = playlist.map((el, index) => {
         return <Link to={`/playlist/${el.id}`} key={index}><div>

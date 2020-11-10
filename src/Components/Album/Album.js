@@ -16,13 +16,12 @@ function Album(props) {
                 headers: { 'Authorization': 'Bearer ' + context.token }
             })
                 .then(res => {
-                    console.log(res)
                     setalbum(res.data)
                 });
 
         }
 
-    }, [context.token])
+    }, [context.token, props.match.params.id])
 
     return (
         <>

@@ -17,7 +17,7 @@ const responsive = {
     },
     tablet: {
         breakpoint: { max: 1024, min: 464 },
-        items: 2
+        items: 1
     },
     mobile: {
         breakpoint: { max: 464, min: 0 },
@@ -48,13 +48,13 @@ function SearchResults(props) {
                 });
         }
 
-    }, [context.token])
+    }, [context.token, props])
 
     return (
         <>
             {Artists && Albums && Tracks && Playlists ?
                 <div className='search-container'>
-                    <h1>Artists</h1>
+                    <h1>Found Artists</h1>
                     <div className="search-grid-header">
                         <div>
                             <Link to={`/artist/${Artists.items[0].id}`}>
@@ -65,7 +65,7 @@ function SearchResults(props) {
                         <div className="search-grid-more-artist">
                             {Artists.items.map((artist, index) => {
                                 if (artist.images.length > 0) {
-                                    return <React.Fragment>
+                                    return <React.Fragment key={index}>
                                         <div key={index}>
                                             <Link to={`/artist/${artist.id}`}>
                                                 <img src={artist.images[1].url} alt="profile"></img>
@@ -73,8 +73,8 @@ function SearchResults(props) {
                                             </Link>
                                         </div>
                                     </React.Fragment>
-
                                 }
+                                else return <></>
 
                             })}
                         </div>
@@ -113,9 +113,7 @@ function SearchResults(props) {
                             <h1>Tracks</h1>
                             {Tracks.items.map((el, index) => {
                                 return <Link to={`/track/${el.id}`} key={index}>
-                                    <div className="track-container" key={index}>
-                                        <p>{el.name}</p>
-                                    </div>
+                                    <iframe src={`https://open.spotify.com/embed/track/${el.id}`} key={index} width="100%" height="80" frameBorder="0" allowtransparency="false" allow="encrypted-media" className="spotify-player-mini" title="tracks" key={index}></iframe>
                                 </Link>
                             })}
                         </div>

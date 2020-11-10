@@ -15,7 +15,6 @@ function Playlist(props) {
                 headers: { 'Authorization': 'Bearer ' + context.token }
             })
                 .then(res => {
-                    console.log(res)
                     setPlaylist(res.data)
                 });
         }
