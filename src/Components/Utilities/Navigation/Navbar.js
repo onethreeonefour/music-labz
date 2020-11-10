@@ -18,7 +18,6 @@ function Navbar() {
                 </label>
             </div>
             <div className="nav-links">
-                <Link to="/">About</Link>
                 <Link to="/">Home</Link>
             </div>
         </div >
