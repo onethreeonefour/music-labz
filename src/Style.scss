@@ -37,8 +37,8 @@ h5 {
     width: 85%;
     margin: auto;
     img {
-        height: 375px;
-        width: 375px;
+        height: auto;
+        max-width: 100%;
         object-fit: cover;
     }
 }
