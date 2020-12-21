@@ -42,7 +42,7 @@ function Playlist(props) {
                             <p>{Playlist.description}</p>
                         </div>
                     </div>
-                </div> : <div className="loading-container">Loading</div>}
+                </div> : <div className="loading-container"><h1>Loading</h1></div>}
         </>
     )
 }

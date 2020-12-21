@@ -153,7 +153,7 @@ function Artist(props) {
                         </div>
                     </>
                 </div> :
-                <div className="loading-container"><h1>Please Return To The Homepage Your Visitor Token May Have Expired</h1></div>
+                <div className="loading-container"><h1>Loading</h1></div>
             }
         </>
     )

@@ -59,7 +59,7 @@ function Landing(props) {
             <div className="hero-container">
                 <div className="hero-grid">
                     <div>
-                        <h1>MusicLabz.<br /> The Premier Music Database and Stream.</h1>
+                        <h1><span className='hero-heading'>MusicLabz</span> <br /> <span className='hero-subheading'> The Premier Music Database and Stream.</span></h1>
                         <form onSubmit={handleSubmit}>
                             <input
                                 value={Query}

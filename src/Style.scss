@@ -41,6 +41,7 @@ h5 {
         max-width: 100%;
         object-fit: cover;
         padding: 0.5rem;
+        border: 1px solid black;
     }
 }
 .loading-container {
@@ -105,6 +106,16 @@ h5 {
             color: rgba(255, 255, 255, 0.7);
         }
     }
+}
+.hero-heading {
+    font-size: 2.75rem;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+.hero-subheading {
+    color: rgba(255, 255, 255, 0.966);
+
+    font-weight: 100;
 }
 .recommended-container {
     margin: auto;
@@ -183,8 +194,8 @@ h5 {
     background-size: cover;
 
     .album-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        //grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
     }
 
@@ -527,17 +538,20 @@ h5 {
     //Album Page
     .album-container {
         height: auto;
-        padding: 5rem 0 5rem 0;
         .album-grid {
-            width: 80%;
-            grid-template-columns: auto;
+            padding: 1.5rem;
+            margin: auto;
+            display: grid;
             justify-content: center;
+            place-content: center;
             img {
                 width: 100%;
-                object-fit: cover;
-                height: 500px;
+                margin: auto;
+                object-fit: fill;
+                height: auto;
             }
             iframe {
+                margin: auto;
                 width: 100%;
             }
         }
