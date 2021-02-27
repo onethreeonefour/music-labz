@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+body {
+  margin: 0px;
+  font-family: "Poppins", sans-serif;
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.nav {
+  height: 50px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 1);
+  position: relative;
+  margin: auto;
+}
+
+.nav-logo-container {
+  display: flex;
+  align-items: center;
+  margin: 5px 3.5rem;
+  img {
+    filter: invert(1) brightness(300);
+    width: 40px;
+    height: auto;
+  }
+}
+
+footer {
+  align-items: center;
+  text-align: center;
+  background-color: #202020;
+  padding: 2rem;
+  color: white;
+}
+
+footer a {
+  color: white;
+}
+@media screen and (max-width: 600px) {
+  .nav-logo-container {
+    margin: 5px 1rem;
+  }
+}

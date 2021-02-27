@@ -67,6 +67,7 @@ h5 {
   background: url("Images/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  padding: 1.5rem;
   input {
     padding: 0.8rem;
     color: black;
@@ -600,7 +601,7 @@ h5 {
   //Landing Page
   .hero-container {
     height: auto;
-    padding: 4rem 0;
+    padding: 4rem;
     input {
       width: 100%;
       width: 325px;
