@@ -8,10 +8,16 @@ import Playlist from "./Components/Playlist/Playlist";
 import Track from "./Components/Track/Track";
 import "./Style.scss";
 
+import { useEffect } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
 
 function App() {
   const location = useLocation();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return (
     <>
       <NavBar />

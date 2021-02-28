@@ -47,7 +47,6 @@ function Artist(props) {
         method: "GET",
         headers: { Authorization: "Bearer " + context.token },
       }).then((res) => {
-        //console.log(res.data.items)
         setartistAlbum(res.data);
       });
       //Artist Top Tracks
@@ -62,10 +61,13 @@ function Artist(props) {
         method: "GET",
         headers: { Authorization: "Bearer " + context.token },
       }).then((res) => {
+        console.log(res);
         setartistSimilar(res.data);
       });
     }
   }, [context.token, props]);
+
+  useEffect(() => {}, []);
   return (
     <>
       {artistSimilar && artistTopTracks && artistAlbum && artistInfo ? (
@@ -76,99 +78,105 @@ function Artist(props) {
           }}
         >
           <>
-            <div className="artist-grid">
-              <div>
-                <img src={artistInfo.images[0].url} alt="profile" className="artist-image"></img>
-              </div>
-              <div>
-                <h1>{artistInfo.name}</h1>
-                <iframe
-                  src={`https://open.spotify.com/follow/1/?uri=${artistInfo.uri}&size=detail&theme=dark`}
-                  width="300"
-                  height="56"
-                  scrolling="no"
-                  frameBorder="0"
-                  style={{ border: "none", overflow: "hidden" }}
-                  allowtransparency="true"
-                  title="follow"
-                ></iframe>
+            <div className="artist-banner">
+              <img src={artistInfo.images[0].url} alt="profile"></img>
+              <h1>{artistInfo.name}</h1>
+              <iframe
+                src={`https://open.spotify.com/follow/1/?uri=${artistInfo.uri}&size=detail&theme=dark`}
+                width="300"
+                height="56"
+                scrolling="no"
+                frameBorder="0"
+                style={{ border: "none", overflow: "hidden" }}
+                allowtransparency="true"
+                title="follow"
+              ></iframe>
+              <div className="genres">
                 <h4>Known For</h4>
                 {artistInfo.genres.map((genres, index) => {
                   return <p key={index}>{genres} </p>;
                 })}
-                <br />
-                <h3>Latest Releases</h3>
-                <div className="artist-key-releases">
-                  <div>
-                    <Link to={`/album/${artistAlbum.items[0].id}`}>
-                      <img src={artistAlbum.items[0].images[1].url} alt="latest"></img>
-                    </Link>
-                    <h4>
-                      {artistAlbum.items[0].name} - {artistAlbum.items[0].release_date}
-                    </h4>
-                  </div>
-                  <div>
-                    <Link to={`/album/${artistAlbum.items[1].id}`}>
-                      <img src={artistAlbum.items[1].images[1].url} alt="latest"></img>
-                    </Link>
-                    <h4>
-                      {artistAlbum.items[1].name} - {artistAlbum.items[1].release_date}
-                    </h4>
-                  </div>
+              </div>
+              <div className="overlay"></div>
+            </div>
+
+            <div className="latest-album-wrapper">
+              <h1 style={{ paddingBottom: "2rem" }}>Latest Release</h1>
+              <div className="album-info-container">
+                <div>
+                  <img src={artistAlbum.items[0].images[0].url} alt="latest"></img>
+                </div>
+                <div className="album-info">
+                  <span className="span-teal " style={{ fontWeight: 700 }}>
+                    Album
+                  </span>
+                  <h1>{artistAlbum.items[0].name}</h1>
+                  <h3>{artistAlbum.items[0].release_date}</h3>
+                  <iframe
+                    src={`https://open.spotify.com/embed/album/${artistAlbum.items[0].id}`}
+                    width="100"
+                    height="380"
+                    frameborder="0"
+                    allowtransparency="true"
+                    allow="encrypted-media"
+                  ></iframe>
                 </div>
               </div>
             </div>
-            <div className="similar-and-top-tracks-container">
+            <div className="top-tracks-wrapper">
               <div>
-                <h1>Top Tracks</h1>
-                {artistTopTracks.tracks.slice(0, 4).map((tracks, index) => {
-                  return (
-                    <iframe
-                      src={`https://open.spotify.com/embed/track/${tracks.id}`}
-                      key={index}
-                      width="95%"
-                      height="80"
-                      frameBorder="0"
-                      allowtransparency="false"
-                      allow="encrypted-media"
-                      className="spotify-player-mini"
-                      title="tracks"
-                    ></iframe>
-                  );
-                })}
-              </div>
-              <div className="similar-artist-container">
-                <h1>Similar Artists</h1>
-                <div className="similar-artist-card-container">
-                  {artistSimilar.artists.slice(0, 6).map((similar, index) => {
+                <h1>Popular Songs</h1>
+                <div className="top-tracks-container">
+                  {artistTopTracks.tracks.map((tracks, index) => {
                     return (
-                      <div key={index}>
-                        <div>
-                          <Link to={`/artist/${similar.id}`}>
-                            <img src={similar.images[2].url} alt="similar-artist"></img>
-                          </Link>
-                          <p>{similar.name}</p>
-                        </div>
-                      </div>
+                      <iframe
+                        src={`https://open.spotify.com/embed/track/${tracks.id}`}
+                        key={index}
+                        width="300"
+                        height="300"
+                        frameBorder="0"
+                        allowtransparency="true"
+                        allow="encrypted-media"
+                        className="spotify-player-mini"
+                        title="tracks"
+                      ></iframe>
                     );
                   })}
                 </div>
               </div>
             </div>
-            <div className="album-carousel-container">
-              <h1>Albums</h1>
-              <Carousel responsive={responsive} centerMode={true} className="carousel">
+            <div className="similar-artist-wrapper">
+              <h1 style={{ padding: "2rem 0" }}>Similar Artists</h1>
+              <div className="similar-artist-container">
+                {artistSimilar.artists.map((similar, index) => {
+                  if (similar.images.length > 0)
+                    return (
+                      <div key={index}>
+                        <div>
+                          <Link to={`/artist/${similar.id}`}>
+                            <img src={similar.images[0].url} alt="similar-artist"></img>
+                          </Link>
+                          <p>{similar.name.slice(0, 15)}</p>
+                        </div>
+                      </div>
+                    );
+                })}
+              </div>
+            </div>
+            <div className="artist-albums-wrapper">
+              <h1 style={{ padding: "2rem 0" }}>Albums</h1>
+              <div className="albums-container">
                 {artistAlbum.items.map((el, index) => {
                   return (
-                    <Link to={`/album/${el.id}`}>
-                      <div key={index}>
-                        <img src={el.images[0].url} alt="playlist"></img>
+                    <Link to={`/album/${el.id}`} key={index}>
+                      <div id="album-scroll">
+                        <img src={el.images[1].url} alt="playlist"></img>
                         <h5>{el.name}</h5>
                       </div>
                     </Link>
                   );
                 })}
-              </Carousel>
+              </div>
             </div>
           </>
         </div>

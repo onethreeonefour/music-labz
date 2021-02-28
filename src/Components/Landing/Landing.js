@@ -6,9 +6,7 @@ import Recommended from "./Recommended";
 import Sales from "./Sales";
 import Signup from "./Signup";
 import { Link } from "react-router-dom";
-import Blank from "../../Images/blank.jpg";
 
-const lazyImage = [0, 1, 2, 4, 5, 6];
 function Landing(props) {
   const context = useContext(GlobalContext);
   const [newReleases, setnewReleases] = useState([]);

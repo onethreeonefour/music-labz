@@ -14,11 +14,12 @@ body {
 }
 
 .nav {
-  height: 50px;
+  height: 52.5px;
   width: 100%;
   background-color: rgba(0, 0, 0, 1);
-  position: relative;
+  position: fixed;
   margin: auto;
+  z-index: 50;
 }
 
 .nav-logo-container {
@@ -26,16 +27,15 @@ body {
   align-items: center;
   margin: 5px 3.5rem;
   img {
-    filter: invert(1) brightness(300);
     width: 40px;
-    height: auto;
+    height: 40px;
   }
 }
 
 footer {
   align-items: center;
   text-align: center;
-  background-color: #202020;
+  background-color: black;
   padding: 2rem;
   color: white;
 }
