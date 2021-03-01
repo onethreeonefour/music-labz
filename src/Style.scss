@@ -211,13 +211,13 @@ h5 {
   display: flex;
   color: white;
   background-color: black;
-  height: auto;
+  min-height: 100vh;
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding: 2rem 1rem;
+  padding: 4rem 1rem;
 
   .album-grid {
     display: flex;
