@@ -90,14 +90,15 @@ h5 {
 //Landing Page
 .hero-container {
   display: flex;
-  height: 100vh;
+  height: auto;
+  padding: 3rem 1.5rem;
   justify-content: center;
   align-items: center;
   color: white;
   background: url("Images/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 1.5rem;
+
   input {
     padding: 0.8rem;
     color: black;
@@ -210,16 +211,16 @@ h5 {
   display: flex;
   color: white;
   background-color: black;
-  height: 100vh;
+  height: auto;
   justify-content: center;
   align-items: center;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  padding: 4rem 1rem;
 
   .album-grid {
     display: flex;
-
     gap: 2rem;
     padding: 2rem;
     width: 80%;

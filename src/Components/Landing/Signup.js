@@ -8,7 +8,7 @@ function Signup() {
 			</h1>
 			<h3>Simply put your email to get started!</h3>
 			<label>Email</label>
-			<input placeholder="Put your email here to see the lastest news!"></input>
+			<input placeholder="Put your email here to see the latest news!"></input>
 			<button className="teal-button">Submit</button>
 		</div>
 	);
