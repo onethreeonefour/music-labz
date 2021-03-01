@@ -91,7 +91,7 @@ h5 {
 .hero-container {
   display: flex;
   height: auto;
-  padding: 3rem 1.5rem;
+  padding: 1.5rem;
   justify-content: center;
   align-items: center;
   color: white;
@@ -217,7 +217,7 @@ h5 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding: 4rem 1rem;
+  padding: 2rem 1rem;
 
   .album-grid {
     display: flex;
@@ -225,6 +225,8 @@ h5 {
     padding: 2rem;
     width: 80%;
     margin: auto;
+    align-items: center;
+    justify-content: center;
   }
 
   .album-info {
