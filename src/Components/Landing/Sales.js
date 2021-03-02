@@ -4,15 +4,13 @@ function Sales() {
   return (
     <div className="sales-container">
       <p>
-        Stream <span>70 million songs</span> ad‑free.
+        MusicLabz provides over <span>70 million songs</span> ad‑free.
         <br />
-        <span>Download</span> your favourite tracks.
+        <span>Explore</span> new artists.
         <br />
-        Play them <span>offline.</span>
+        Get MusicLabz curated <span>playlists</span> to suit your <span>tastes</span>
         <br />
-        Get exclusive <span>playlists</span> and <span>live radio. </span>
-        <br />
-        Listen across <span>all of your devices.</span>
+        Only at <span>MusicLabz.</span>
       </p>
       <button className="teal-button">Start Free Trial</button>
     </div>
