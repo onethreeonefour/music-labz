@@ -2,28 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { GlobalContext } from "../../Context/Context";
 import { Link } from "react-router-dom";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 
-const responsive = {
-  superLargeDesktop: {
-    // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
-    items: 5,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 1,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  },
-};
 function Artist(props) {
   const [artistInfo, setartistInfo] = useState();
   const [artistAlbum, setartistAlbum] = useState();
@@ -101,7 +80,10 @@ function Artist(props) {
             </div>
 
             <div className="latest-album-wrapper">
-              <h1 style={{ paddingBottom: "2rem" }}>Latest Release</h1>
+              <div className="album-heading-container">
+                <h1>Albums</h1>
+                <hr />
+              </div>
               <div className="album-info-container">
                 <div>
                   <img src={artistAlbum.items[0].images[0].url} alt="latest"></img>
@@ -119,13 +101,18 @@ function Artist(props) {
                     frameborder="0"
                     allowtransparency="true"
                     allow="encrypted-media"
+                    title="latest-album"
                   ></iframe>
                 </div>
               </div>
             </div>
             <div className="top-tracks-wrapper">
               <div>
-                <h1>Popular Songs</h1>
+                <div className="album-heading-container">
+                  <h1>Popular Songs</h1>
+                  <hr />
+                </div>
+
                 <div className="top-tracks-container">
                   {artistTopTracks.tracks.map((tracks, index) => {
                     return (
@@ -146,7 +133,10 @@ function Artist(props) {
               </div>
             </div>
             <div className="similar-artist-wrapper">
-              <h1 style={{ padding: "2rem 0" }}>Similar Artists</h1>
+              <div className="album-heading-container">
+                <h1>Similar Artists</h1>
+                <hr />
+              </div>
               <div className="similar-artist-container">
                 {artistSimilar.artists.map((similar, index) => {
                   if (similar.images.length > 0)
@@ -164,7 +154,10 @@ function Artist(props) {
               </div>
             </div>
             <div className="artist-albums-wrapper">
-              <h1 style={{ padding: "2rem 0" }}>Albums</h1>
+              <div className="album-heading-container">
+                <h1>Albums</h1>
+                <hr />
+              </div>
               <div className="albums-container">
                 {artistAlbum.items.map((el, index) => {
                   return (

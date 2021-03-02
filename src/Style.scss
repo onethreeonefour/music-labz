@@ -55,8 +55,8 @@ h5 {
   color: $teal;
 }
 *::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   background-color: #f5f5f500;
 }
@@ -68,10 +68,9 @@ h5 {
 
 *::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  height: 5px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: rgba(0, 238, 255, 0.753);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+  background-color: $teal;
 }
 
 *::-webkit-scrollbar-track-piece:end {
@@ -90,6 +89,7 @@ h5 {
 .hero-container {
   display: flex;
   height: auto;
+  min-height: 100vh;
   padding: 1.5rem;
   justify-content: center;
   align-items: center;
@@ -130,7 +130,7 @@ h5 {
     p:nth-child(3) {
       color: rgba(255, 255, 255, 0.7);
     }
-    .img {
+    img:hover {
       border-color: hotpink;
       transform: scale(1.01);
     }
@@ -264,6 +264,14 @@ h5 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  padding-bottom: 2rem;
+}
+.album-heading-container {
+  padding: 2rem 0;
+  hr {
+    margin-top: 0.25rem;
+    border-color: rgba(255, 255, 255, 0.15);
+  }
 }
 //Artist Page
 .artist-banner {
@@ -343,9 +351,7 @@ h5 {
     justify-content: center;
     align-items: center;
   }
-  h1 {
-    padding: 2rem 0;
-  }
+
   iframe {
     transition: all ease-in-out 0.2s;
     outline: 2px solid transparent;
@@ -408,77 +414,100 @@ h5 {
 
 //Search Result Page
 .search-container {
+  display: flex;
+  flex-direction: column;
   height: auto;
   color: white;
-  background: radial-gradient(
-      circle,
-      rgba(158, 56, 56, 0.85) 0%,
-      rgba(37, 8, 62, 0.9) 100%,
-      rgba(26, 27, 125, 1) 100%
-    ),
-    url("Images/CSS/cubes.png");
+  background: radial-gradient(circle, rgba(123, 10, 176, 0.4) 0%, rgba(59, 3, 103, 0.8) 35%, rgba(0, 0, 0, 0.9) 100%);
   justify-content: center;
   align-items: center;
-  h1 {
-    text-align: center;
-    padding: 3rem 0 3rem 0;
-  }
-  hr {
-    width: 50%;
-    margin: auto;
-    border-color: rgba(255, 255, 255, 0.3);
-    margin-top: 3rem;
-  }
+  padding: 4rem 0;
+}
+.artist-search-container {
+  width: 85%;
+  margin: auto;
 }
 .search-grid-header {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  width: 90%;
   margin: auto;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
 
-  img {
-    height: 640px;
-    width: 640px;
-    object-fit: cover;
-    display: inline;
-    border-radius: 5px;
-  }
-  .search-grid-more-artist {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 0.5rem;
+  .search-top-result-artist {
+    display: flex;
+    justify-content: center;
+    text-align: center;
     img {
-      border-radius: 50%;
-      height: 150px;
-      width: 150px;
+      height: 625px;
+      width: 625px;
       object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid hotpink;
       transition: all 0.4s ease-in-out;
     }
     img:hover {
-      filter: saturate(0);
+      transform: scale(1.005);
+    }
+  }
+
+  .search-grid-more-artist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    text-align: center;
+    img {
+      border-radius: 50%;
+      height: 140px;
+      width: 140px;
+      object-fit: cover;
+      transition: all 0.4s ease-in-out;
+      border: 2px solid transparent;
+    }
+    img:hover {
+      border-color: hotpink;
+      transform: scale(1.02);
     }
   }
 }
-.albums-tracks-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  width: 80%;
+.search-playlist-wrapper {
+  width: 85%;
   margin: auto;
-  .track-container {
-    display: grid;
-    background-color: rgba(0, 0, 0, 0.4);
-    grid-template-columns: repeat(2, 1fr);
-    text-align: left;
-
-    padding: 1rem;
+}
+.playlist-flex-container {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+  img {
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
   }
-  .track-container:hover {
-    background-color: $teal;
-  }
-  .card-image {
-    border-radius: 50%;
+}
+.albums-tracks-container {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  gap: 2rem;
+  margin: auto;
+  .search-album-flex-container {
     display: flex;
-    margin-left: auto;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .track-container img {
+    border: 3px solid transparent;
+    text-align: center;
+    transition: 0.2s all ease-in-out;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  .track-container img:hover {
+    border-color: hotpink;
   }
 }
 //Search Page End
@@ -502,10 +531,7 @@ h5 {
   .playlist-info {
     h1,
     h3 {
-      margin-top: 1rem;
-    }
-    h1 {
-      margin-bottom: 1rem;
+      text-shadow: 1px 1px black;
     }
   }
 }
@@ -519,12 +545,7 @@ h5 {
   justify-content: center;
   align-items: center;
 
-  background: radial-gradient(
-      circle,
-      rgba(158, 56, 56, 0.85) 0%,
-      rgba(37, 8, 62, 0.9) 100%,
-      rgba(26, 27, 125, 1) 100%
-    ),
+  background: radial-gradient(circle, rgba(158, 56, 56, 0.85) 0%, rgba(37, 8, 62, 0.9) 100%, rgba(26, 27, 125, 1) 100%),
     url("Images/CSS/cubes.png");
 
   .track-grid {
@@ -556,10 +577,14 @@ h5 {
       font-size: 5vw;
     }
   }
+  .hero-grid,
   .latest-album-wrapper,
   .top-tracks-wrapper,
   .similar-artist-wrapper,
-  .artist-albums-wrapper {
+  .artist-albums-wrapper,
+  .artist-search-container,
+  .search-playlist-wrapper,
+  .albums-tracks-container {
     width: 50%;
   }
 
@@ -579,12 +604,6 @@ h5 {
       }
     }
   }
-
-  .search-grid-header {
-    display: flex;
-    justify-content: center;
-    gap: 10rem;
-  }
 }
 @media screen and (min-width: 2560px) {
   //Artist Page
@@ -593,17 +612,15 @@ h5 {
       font-size: 5vw;
     }
   }
+  .hero-grid,
   .latest-album-wrapper,
   .top-tracks-wrapper,
   .similar-artist-wrapper,
-  .artist-albums-wrapper {
+  .artist-albums-wrapper,
+  .artist-search-container,
+  .search-playlist-wrapper,
+  .albums-tracks-container {
     width: 65%;
-  }
-  //Search Page
-  .search-grid-header {
-    display: flex;
-    justify-content: center;
-    gap: 8rem;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -692,19 +709,14 @@ h5 {
   }
   //Search Page
   .search-grid-header {
+    display: flex;
     width: 90%;
-    grid-template-columns: auto;
-    img {
-      width: 100%;
-    }
+    flex-direction: column;
     h2 {
-      padding: 0 0 4rem 0;
+      padding: 2rem 0;
     }
     .search-grid-more-artist {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
       width: 90%;
-      margin: auto;
     }
   }
 }
@@ -717,6 +729,16 @@ h5 {
   }
   .hero-subheading {
     font-size: 1.5rem;
+  }
+  .hero-grid,
+  .latest-album-wrapper,
+  .top-tracks-wrapper,
+  .similar-artist-wrapper,
+  .artist-albums-wrapper,
+  .artist-search-container,
+  .search-playlist-wrapper,
+  .albums-tracks-container {
+    width: 90%;
   }
 
   //Landing Page
@@ -752,50 +774,38 @@ h5 {
     }
   }
 
-  //Search Page
-  .search-container {
-    padding-bottom: 4rem;
-  }
-  .search-grid-header {
-    width: 92.5%;
-    grid-template-columns: auto;
-    img {
-      width: 100%;
-    }
-    h2 {
-      padding: 0 0 4rem 0;
-    }
-    .search-grid-more-artist {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      width: 90%;
-      margin: auto;
-    }
-  }
-  .albums-tracks-container {
-    display: grid;
-    width: 95%;
-    grid-template-columns: auto;
-  }
   //Artist
   .artist-banner {
     img {
       height: 100vh;
     }
     .overlay {
-      position: absolute;
-      width: 100%;
       height: 100vh;
-      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.75));
-      top: 0;
-      z-index: 10;
     }
     .genres {
-      position: absolute;
       right: 5%;
       bottom: 5%;
-      z-index: 20;
       font-size: 0.75rem;
+    }
+  }
+
+  //Search
+  .search-grid-header {
+    .search-top-result-artist {
+      img {
+        height: auto;
+        width: 85vw;
+      }
+    }
+    .search-grid-more-artist {
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      img {
+        height: 100px;
+        width: 100px;
+      }
     }
   }
 }
