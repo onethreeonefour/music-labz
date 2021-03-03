@@ -20,6 +20,7 @@ function Artist(props) {
         headers: { Authorization: "Bearer " + context.token },
       }).then((res) => {
         setartistInfo(res.data);
+        document.title = `MusicLabz - ${res.data.name}`;
       });
       //Artist Albums
       axios(`https://api.spotify.com/v1/artists/${id}/albums?market=US`, {
@@ -40,7 +41,7 @@ function Artist(props) {
         method: "GET",
         headers: { Authorization: "Bearer " + context.token },
       }).then((res) => {
-        console.log(res);
+        //console.log(res);
         setartistSimilar(res.data);
       });
     }

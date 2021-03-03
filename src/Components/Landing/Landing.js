@@ -32,6 +32,7 @@ function Landing(props) {
         }).then((res) => {
           //console.log(res)
           setnewReleases(res.data.albums.items);
+          document.title = `MusicLabz - A Spotify Web App`;
           //console.log(context.token)
         });
       });

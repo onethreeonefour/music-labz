@@ -16,6 +16,7 @@ function Album(props) {
         headers: { Authorization: "Bearer " + context.token },
       }).then((res) => {
         setalbum(res.data);
+        document.title = `MusicLabz - ${res.data.name}`;
       });
     }
   }, [context.token, props.match.params.id]);
