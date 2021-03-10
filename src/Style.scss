@@ -54,6 +54,11 @@ h5 {
 .span-teal {
   color: $teal;
 }
+
+* {
+  scrollbar-color: $teal transparent;
+  scrollbar-width: thin;
+}
 *::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
