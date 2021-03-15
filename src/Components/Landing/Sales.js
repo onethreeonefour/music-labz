@@ -6,9 +6,7 @@ function Sales() {
       <p>
         MusicLabz provides over <span>70 million songs</span> ad‑free.
         <br />
-        <span>Explore</span> new artists.
-        <br />
-        Get MusicLabz curated <span>playlists</span> to suit your <span>tastes</span>
+        Get MusicLabz curated <span>playlists</span> to suit your <span>tastes.</span>
         <br />
         Only at <span>MusicLabz.</span>
       </p>
