@@ -38,6 +38,7 @@ function SearchResults(props) {
               <div className="search-top-result-artist">
                 <Link to={`/artist/${Artists.items[0].id}`}>
                   <img src={Artists.items[0].images[0].url} alt="top-artist" className="search-top-artist"></img>
+
                   <h2>{Artists.items[0].name}</h2>
                 </Link>
               </div>
