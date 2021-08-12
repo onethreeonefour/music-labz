@@ -59,7 +59,8 @@ function Artist(props) {
         >
           <>
             <div className="artist-banner">
-              <img src={artistInfo.images[0].url} alt="profile"></img>
+              <img src={artistInfo.images[0].url} alt="profile" className="artist-banner-image"></img>
+              <img src={artistInfo.images[0].url} alt="profile" className="artist-banner-image-blurred"></img>
               <h1>{artistInfo.name}</h1>
               <iframe
                 src={`https://open.spotify.com/follow/1/?uri=${artistInfo.uri}&size=detail&theme=dark`}
