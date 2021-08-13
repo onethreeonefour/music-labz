@@ -27,7 +27,7 @@ function Album(props) {
         <div
           className="album-container"
           style={{
-            backgroundImage: `radial-gradient(circle, rgba(123,10,176,0.4) 0%, rgba(59,3,103,0.8) 35%, rgba(0,0,0,0.9) 100%),url(${album.images[0].url})`,
+            backgroundImage: `radial-gradient(circle, rgba(123,10,176,0.8) 0%, rgba(59,3,103,0.8) 5%, rgba(0,0,0,0.9) 100%),url(${album.images[0].url})`,
           }}
         >
           <div className="album-grid">
