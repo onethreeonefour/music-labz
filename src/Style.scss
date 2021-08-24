@@ -312,7 +312,7 @@ h5 {
     left: 50%;
     right: 50%;
     transform: translate(-50%, -50%);
-    height: 75%;
+    height: 95%;
     border-radius: 0.3rem;
   }
   .artist-banner-image-blurred {
@@ -329,12 +329,12 @@ h5 {
   }
   h1 {
     position: absolute;
-    top: 50%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 6rem;
+    font-size: 5vw;
     z-index: 20;
-    text-shadow: 2px 2px 1px rgba(0, 0, 0, 1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
   }
   //gradient overlay
   .overlay {
@@ -842,6 +842,11 @@ h5 {
       right: 5%;
       bottom: 5%;
       font-size: 0.75rem;
+    }
+    h1 {
+      top: 50%;
+
+      font-size: 3rem;
     }
   }
 
