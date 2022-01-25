@@ -201,6 +201,8 @@ h5 {
   background-color: black;
   color: white;
   text-align: center;
+  width: 40%;
+  margin: auto;
   .signup-container {
     padding-bottom: 4rem;
     h1 {
@@ -224,13 +226,13 @@ h5 {
       color: black;
       border: none;
       border-radius: 1px;
-      width: 40%;
+      width: 350px;
     }
     button {
       display: block;
       margin: auto;
       margin-top: 1rem;
-      width: 40%;
+      width: 350px;
     }
   }
 }
@@ -628,18 +630,78 @@ h5 {
   }
 }
 //Track End
-@media screen and (min-width: 3840px) {
+@media screen and (min-width: 5120px) {
   //Artist Page
   .artist-banner {
     h1 {
       font-size: 5vw;
     }
   }
-  .hero-grid {
-    width: 85%;
+  .hero-container {
+    .hero-grid {
+      width: 60%;
+      gap: 250px;
+    }
   }
+  .carousel {
+    width: 50%;
+  }
+  .sales-landing-container {
+    .sales-container {
+      width: 30%;
+    }
+  }
+
   .carousel,
   .sales-container,
+  .latest-album-wrapper,
+  .top-tracks-wrapper,
+  .similar-artist-wrapper,
+  .artist-albums-wrapper,
+  .artist-search-container,
+  .search-playlist-wrapper,
+  .albums-tracks-container {
+    width: 40%;
+  }
+
+  //Album Page
+  .album-container {
+    .album-grid {
+      img {
+        height: 900px;
+      }
+    }
+  }
+  //Playlist
+  .playlist-container {
+    .playlist-grid {
+      img {
+        height: 900px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 3840px) {
+  //Artist Page
+  .artist-banner {
+    h1 {
+      font-size: 5vw;
+    }
+  }
+  .hero-container {
+    .hero-grid {
+      width: 70%;
+    }
+  }
+  .sales-landing-container {
+    .sales-container {
+      width: 45%;
+    }
+  }
+  .carousel {
+    width: 45%;
+  }
+
   .latest-album-wrapper,
   .top-tracks-wrapper,
   .similar-artist-wrapper,
@@ -667,15 +729,22 @@ h5 {
     }
   }
 }
-@media screen and (min-width: 2560px) {
+@media screen and (max-width: 2560px) {
   //Artist Page
   .artist-banner {
     h1 {
       font-size: 5vw;
     }
   }
-  .hero-grid {
-    width: 85%;
+  .hero-container {
+    .hero-grid {
+      width: 75%;
+    }
+  }
+  .sales-landing-container {
+    .sales-container {
+      width: 55%;
+    }
   }
 
   .carousel,
@@ -797,6 +866,9 @@ h5 {
   .hero-subheading {
     font-size: 1.5rem;
   }
+  .carousel {
+    width: 100%;
+  }
   .hero-grid,
   .latest-album-wrapper,
   .top-tracks-wrapper,
@@ -830,16 +902,7 @@ h5 {
     }
   }
   .signup-landing-container {
-    .signup-container {
-      width: 90%;
-      margin: auto;
-      input {
-        width: 80%;
-      }
-      button {
-        width: 80%;
-      }
-    }
+    width: 100%;
   }
 
   //Artist
