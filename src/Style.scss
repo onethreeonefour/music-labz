@@ -249,20 +249,31 @@ h5 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding: 4rem 1rem;
+  //padding: 4rem 1rem;
 
   .album-grid {
     display: flex;
     gap: 2rem;
-    padding: 2rem;
+    //padding: 2rem;
     width: 87.5%;
     margin: auto;
     align-items: center;
-
     justify-content: center;
+    img {
+      border-radius: 1rem;
+    }
   }
 
   .album-info {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    height: 100%;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    gap: 0.5rem;
+    padding: 1rem;
     h1,
     h3 {
       margin-top: 1rem;
@@ -587,8 +598,24 @@ h5 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    img {
+      border-radius: 1rem;
+    }
   }
   .playlist-info {
+    place-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    height: 100%;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    gap: 0.5rem;
+    padding: 1rem;
+
     h1,
     h3 {
       text-shadow: 1px 1px black;
@@ -790,8 +817,8 @@ h5 {
   .album-container {
     height: auto;
     .album-grid {
-      width: 95%;
-      padding: 4rem 1.5rem;
+      width: 100%;
+      padding: 1rem;
       margin: auto;
       display: grid;
       justify-content: center;
@@ -813,10 +840,12 @@ h5 {
     height: auto;
     padding: 5rem 0 5rem 0;
     .playlist-grid {
-      width: 80%;
+      width: 100%;
+      padding: 1rem;
       grid-template-columns: auto;
       justify-content: center;
       img {
+        border-radius: 1rem;
         width: 100%;
         object-fit: cover;
         height: 500px;

@@ -47,7 +47,7 @@ function Playlist(props) {
               <iframe
                 src={`https://open.spotify.com/follow/1/?uri=${Playlist.owner.uri}&size=detail&theme=dark`}
                 width="300"
-                height="56"
+                height="0"
                 scrolling="no"
                 frameBorder="0"
                 style={{ border: "none", overflow: "hidden" }}
