@@ -7,7 +7,9 @@ function Navbar() {
       <div className="nav-header">
         <div className="nav-logo-container">
           <Link to="/">
-            <img src="mb.png" alt="mbrainz" className="nav-logo" />
+            <p>
+              MUSIC.<strong>LABZ</strong>
+            </p>
           </Link>
         </div>
       </div>

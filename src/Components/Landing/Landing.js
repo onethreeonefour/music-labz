@@ -52,8 +52,10 @@ function Landing(props) {
         <div className="hero-grid">
           <div>
             <h1>
-              <span className="hero-heading">Music.Labz</span> <br />{" "}
-              <span className="hero-subheading"> The Premier Music Database and Stream.</span>
+              <span className="hero-heading">
+                <span style={{ color: "rgba(255,255,255,0.7)" }}>Music</span>.Labz
+              </span>{" "}
+              <br /> <span className="hero-subheading"> The Premier Music Database and Stream.</span>
             </h1>
             <form onSubmit={handleSubmit}>
               <input
