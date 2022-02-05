@@ -224,7 +224,7 @@ h5 {
     input {
       background-color: white;
       padding: 0.8rem;
-      font-size: 1.5rem;
+      font-size: 1rem;
       color: black;
       border: none;
       border-radius: 1px;
@@ -297,7 +297,8 @@ h5 {
 
 //Artist Page
 .artist-container {
-  display: flexbox;
+  display: flex;
+  flex-direction: column;
   color: white;
   background-color: black;
   height: auto;
@@ -388,6 +389,7 @@ h5 {
     display: flex;
     gap: 2rem;
     align-items: center;
+    justify-content: center;
     img {
       width: auto;
     }
@@ -921,7 +923,7 @@ h5 {
     }
     .hero-new-releases {
       grid-template-columns: repeat(1, 1fr);
-      padding: 0;
+      padding: 1rem;
     }
   }
   .sales-landing-container {

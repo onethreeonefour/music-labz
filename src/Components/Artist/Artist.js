@@ -83,7 +83,7 @@ function Artist(props) {
 
             <div className="latest-album-wrapper">
               <div className="album-heading-container">
-                <h1>Albums</h1>
+                <h1>Latest Album</h1>
                 <hr />
               </div>
               <div className="album-info-container">
@@ -91,9 +91,6 @@ function Artist(props) {
                   <img src={artistAlbum.items[0].images[0].url} alt="latest"></img>
                 </div>
                 <div className="album-info">
-                  <span className="span-teal " style={{ fontWeight: 700 }}>
-                    Album
-                  </span>
                   <h1>{artistAlbum.items[0].name}</h1>
                   <h3>{artistAlbum.items[0].release_date}</h3>
                   <iframe
@@ -114,7 +111,6 @@ function Artist(props) {
                   <h1>Popular Songs</h1>
                   <hr />
                 </div>
-
                 <div className="top-tracks-container">
                   {artistTopTracks.tracks.map((tracks, index) => {
                     return (
@@ -136,7 +132,7 @@ function Artist(props) {
             </div>
             <div className="similar-artist-wrapper">
               <div className="album-heading-container">
-                <h1>Similar Artists</h1>
+                <h1>Artists You'll Love</h1>
                 <hr />
               </div>
               <div className="similar-artist-container">
